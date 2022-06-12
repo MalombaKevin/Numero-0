@@ -1,0 +1,3 @@
+Create standard files [License, README.md, requirements.txt, Procfile, .gitignore, .env, runtime.txt]
+Create and activate virtual environment
+Install django (install from requirements.txt)
