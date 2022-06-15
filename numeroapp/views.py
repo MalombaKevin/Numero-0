@@ -17,8 +17,10 @@ def index(request):
 def profile(request):
     profiles = numero_Profile.objects.all()
     user = User.objects.get(username=request.user.username)
+    projects = numero_Project.objects.all()
+    
 
-    return render(request, 'profile.html', {'profiles': profiles, 'user': user})
+    return render(request, 'profile.html', {'profiles': profiles, 'user': user, 'projects': projects})
 
 
 
