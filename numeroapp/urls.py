@@ -8,8 +8,9 @@ from django.conf.urls.static import static
 # urls paths
 urlpatterns = [
     path('', views.index, name='index'),
-    path('newProject', views.add_project, name='new_project'),
-    path('newProfile', views.add_profile, name='new_profile'),
+    path('newProject/', views.add_project, name='new_project'),
+    path('newProfile/', views.add_profile, name='new_profile'),
+    path('profile/', views.profile, name='profile')
 ]
 
 if settings.DEBUG:
