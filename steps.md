@@ -16,4 +16,7 @@
 * create a navigation bar template to be extended in all templates
 * create a static folder to hold static files (Images/css files/ js files)
 * create classes in models.py (Profile and Projects)
-* Make migrations and run migrations
+* Make migrations then migrate to database
+* create view functions to show the profile and projects
+* create a form to add projects
+* create a view function for the forms class and a template to render the form
