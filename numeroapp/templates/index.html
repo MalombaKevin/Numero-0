@@ -10,6 +10,27 @@
 </head>
 <body>
     {% include 'navbar.html' %}
-   <p>Kevin</p> 
+    <div class="container">
+
+    {% for project in projects%}
+    <div class="col-md-4">
+        <div class="card" align="center">
+            <div class="card-header">{{project.title}} </div>
+            <div class="card-body">
+                <p>{{project.description}}</p>
+                <img src="{{project.image_project.url}}" style="width:100%; height:10rem" alt="{{project.title}}">
+            </div>
+            <div class="card-footer">
+                <a href="{{project.url}}" target="blank">Visit Site</a>
+            </div>
+        </div>
+        
+        
+    </div>
+   
+    {%endfor%}
+</div>
+
+   
 </body>
 </html>
