@@ -4,9 +4,9 @@ from django.db import models
 class numero_Project(models.Model):
     title=models.CharField(max_length=200)
     description=models.TextField(max_length=10000)
-    image=models.ImageField(upload_to='images/')
+    image_project=models.ImageField(upload_to='images/')
     url=models.URLField(max_length=200)
-    profile = models.ForeignKey('numero_Profile', on_delete=models.CASCADE)
+    profile = models.ForeignKey('numero_Profile', on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.title

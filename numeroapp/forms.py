@@ -4,7 +4,7 @@ from .models import numero_Project, numero_Profile
 class numero_ProjectForm(forms.ModelForm):
     class Meta:
         model = numero_Project
-        fields = ('title', 'description', 'image', 'url')
+        fields = ('title', 'description', 'image_project', 'url')
 
 class numero_ProfileForm(forms.ModelForm):
     class Meta:
