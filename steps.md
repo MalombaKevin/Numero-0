@@ -20,3 +20,4 @@
 * create view functions to show the profile and projects
 * create a form to add projects
 * create a view function for the forms class and a template to render the form
+* Adds a django registration (login/signup/logout)
