@@ -11,27 +11,30 @@
 <body>
     {% include 'navbar.html' %}
     <div class="container">
+        <div class="row">
 
-    {% for project in projects%}
+        {% for project in projects%}
     <div class="col-md-4">
-        <div class="card" align="center">
+        
+        <div class="card" align="center" style="height:29rem">
             <div class="card-header">{{project.title}} </div>
             <div class="card-body">
                 <p>{{project.description}}</p>
-                <img src="{{project.image_project.url}}" style="width:100%; height:10rem" alt="{{project.title}}">
+                <img src="{{project.image_project.url}}" style="width:100%;" alt="{{project.title}}">
             </div>
             <div class="card-footer" style="display:flex;justify-content:space-around">
                 <a href="{{project.url}}" target="blank">Visit Site</a>
-                <a href="{{project.url}}" target="blank">Project Details</a>
+                <a href="{%url 'details' project.id%}" target="_self">Project Details</a>
               
             </div>
         </div>
         
-        
+       
     </div>
+    {%endfor%} 
     
    
-    {%endfor%}
+</div>
 </div>
 
    
