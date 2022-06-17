@@ -17,6 +17,18 @@ class numero_Project(models.Model):
     
     def update_numero_project(self):
         self.update()
+    
+    def delete_numero_Profile(self):
+        self.delete()
+   
+    @classmethod
+    def search_item(cls, search_term):
+        results = cls.objects.filter(title__icontains=search_term)
+        return results
+    
+     
+    
+    
 
 
 class numero_Profile(models.Model):

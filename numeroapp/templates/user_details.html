@@ -9,7 +9,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/9c5f6822d9.js" crossorigin="anonymous"></script>
 
-    <title>Hi {{user.username}}</title>
+    <title>{{user.username}}</title>
 
 </head>
 
@@ -24,30 +24,30 @@
             <div class="col-md-3 ">
                 
 
-                {% for profile in profiles %}
+                
 
-                <img src="{{profile.profile_picture.url}}" style="height:20rem; border-radius: 50%;">
+                <img src="{{profiles.profile_picture.url}}" style="height:20rem; border-radius: 50%;">
                 <h5>{{user.username}} </h5>
 
                 <p> {{profile.bio}}</p>
 
 
                 <div>
-                    <a href="{{profile.github_profile}}"><i class="fa-brands fa-github"
+                    <a href="{{profiles.github_profile}}"><i class="fa-brands fa-github"
                             style="font-size:x-large; color:black"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="tel: {{profile.phone_number}}"><i class="fa-solid fa-phone"
+                    <a href="tel: {{profiles.phone_number}}"><i class="fa-solid fa-phone"
                             style="font-size:x-large; color:magenta"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="{{profile.twitter_profile}}"><i class="fa-brands fa-twitter"
+                    <a href="{{profiles.twitter_profile}}"><i class="fa-brands fa-twitter"
                             style="font-size:x-large"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="mailto:{{profile.email}}?subject=Hi {{user.username}}&body=Greetings,I am enquiring on"><i
+                    <a href="mailto:{{profiles.email}}?subject=Hi {{user.username}}&body=Greetings,I am enquiring on"><i
                             class="fa-solid fa-envelope" style="font-size:x-large; color:red"></i></i></a>&nbsp;&nbsp;
                 </div>
-                {% endfor %}
+               
             </div>
 
             <div class="col-md-8">
                 <div align="center">
-                    <h3>My Projects</h3>
+                    <h3>{{user.username}}'s Projects</h3>
                 </div>
 
 
