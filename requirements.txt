@@ -15,6 +15,7 @@ django-bootstrap3==21.2
 django-bootstrap4==22.1
 django-heroku==0.3.1
 django-registration==3.3
+djangorestframework==3.13.1
 gunicorn==20.1.0
 idna==3.3
 Pillow==9.1.1
