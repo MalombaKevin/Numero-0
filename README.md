@@ -12,7 +12,7 @@
 + [Technology Used](#Technology-Used)
 + [Authors Info](#Authors-Info)
 
-### Numero site link
+### Numer0 site link
 + [www.numer0.com]()
 
 
