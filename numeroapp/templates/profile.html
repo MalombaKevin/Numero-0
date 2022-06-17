@@ -22,14 +22,14 @@
         <div class="row m-4">
 
             <div class="col-md-3 ">
+
+
+                <img src="{{profile.profile_picture.url}}" style="height:20rem;width:100%">
                 
+                <span style="font-size:large; font-weight:800">{{profile.profile_name}}</span><br>
+                <span>@{{user.username}}</span>
 
-                {% for profile in profiles %}
-
-                <img src="{{profile.profile_picture.url}}" style="height:20rem; border-radius: 50%;">
-                <h5>{{user.username}} </h5>
-
-                <p> {{profile.bio}}</p>
+                <p > {{profile.bio}}</p>
 
 
                 <div>
@@ -42,7 +42,7 @@
                     <a href="mailto:{{profile.email}}?subject=Hi {{user.username}}&body=Greetings,I am enquiring on"><i
                             class="fa-solid fa-envelope" style="font-size:x-large; color:red"></i></i></a>&nbsp;&nbsp;
                 </div>
-                {% endfor %}
+
             </div>
 
             <div class="col-md-8">
@@ -72,7 +72,7 @@
                     {%endfor%}
 
                 </div>
-               
+
             </div>
         </div>
 

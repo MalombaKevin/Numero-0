@@ -21,15 +21,16 @@
         <div class="col-md-2">
             <div class="card" style="border:none" align="center">
                 <img src="{{profile.profile_picture.url}}" style="border-radius:50%; height:17rem">
-               <h3 >{{user.username}}</h3>
-               <a href ="{%url 'numerologer' profile.id%}" title="View {{user.username}}'s profile"> <i class="fa-solid fa-eye" style="font-size:xx-large"></i></a>
+               <h3 >{{profile.user.username}}</h3>
+               <a href ="{%url 'numerologer' profile.user.id%}" title="View {{user.username}}'s profile"> <i class="fa-solid fa-eye" style="font-size:xx-large"></i></a>
             </div>
                
 
         </div>
+        {%endfor%}
     </div>
 
-    {%endfor%}
+   
 </div>
    
 

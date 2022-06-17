@@ -14,7 +14,9 @@ urlpatterns = [
     path('project/<int:id>/', views.project_details, name='details'),
     path('numerologers/',views.numerologers, name='users'),
     path('numerologers/user/<int:id>',views.numerologer, name='numerologer'),
-    path('search/', views.search_results, name='search_results')
+    path('search/', views.search_results, name='search_results'),
+    path('api/projects/', views.ProjectView.as_view()),
+    path('api/profiles/', views.ProfileView.as_view()),
 ]
 
 if settings.DEBUG:

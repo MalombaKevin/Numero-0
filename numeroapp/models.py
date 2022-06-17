@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class numero_Project(models.Model):  
@@ -7,7 +8,8 @@ class numero_Project(models.Model):
     image_project=models.ImageField(upload_to='images/')
     url=models.URLField(max_length=200)
     project_files =models.URLField(max_length=200, blank=True)
-    profile = models.ForeignKey('numero_Profile', on_delete=models.CASCADE, null=True)
+    user= models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+   
 
     def __str__(self):
         return self.title
@@ -39,7 +41,8 @@ class numero_Profile(models.Model):
     email=models.EmailField(max_length=200, blank=True)
     github_profile =models.URLField(max_length=200, blank=True)
     twitter_profile=models.URLField(max_length=200, blank=True)
-    linked_profile=models.URLField(max_length=200, blank=True)
+    linked_profile=models.URLField(max_length=200, blank=True)   
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.bio

@@ -4,6 +4,13 @@ from numeroapp.forms import numero_ProfileForm, numero_ProjectForm
 from .models import numero_Project, numero_Profile
 from django.contrib.auth.models import User
 
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework import status
+from numeroapp.serializer import ProfileSerializer, ProjectSerializer
+
+
+
 
 # Create your views here.
 
@@ -17,13 +24,15 @@ def index(request):
 
 @login_required(login_url='/accounts/login/')  
 def profile(request):
-    current_user = request.user
-    profiles = numero_Profile.objects.all()
-    user = User.objects.get(username=request.user.username)
-    projects = numero_Project.objects.all()
-    
+    if numero_Profile.objects.filter(user_id=request.user.id).exists():
+        profile = numero_Profile.objects.get(user_id=request.user.id)
+        projects = numero_Project.objects.filter(user_id = request.user.id).all()
+    else:
+        profile = None
+        projects = None
 
-    return render(request, 'profile.html', {'profiles': profiles, 'user': user, 'projects': projects})
+    
+    return render(request, 'profile.html', {'profile': profile,'projects': projects})
 
 
 
@@ -33,8 +42,10 @@ def add_project(request):
     if request.method == 'POST':
         form = numero_ProjectForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect('index')
+           project= form.save(commit=False)
+           project.user = request.user
+           project.save()
+           return redirect('index')
     else:
         form = numero_ProjectForm()
 
@@ -45,7 +56,9 @@ def add_profile(request):
     if request.method == 'POST':
         form = numero_ProfileForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            profile=form.save(commit=False)
+            profile.user = request.user
+            profile.save()
             return redirect('profile')
     else:
         form = numero_ProfileForm()
@@ -65,11 +78,14 @@ def numerologers(request):
 
 @login_required(login_url='/accounts/login/')
 def numerologer(request, id):
-    profiles = numero_Profile.objects.get(id=id)
-    projects = numero_Project.objects.all()
-    user = User.objects.get(username=request.user.username)
-    return render(request, 'user_details.html', {'profiles': profiles,'user':user , 'projects':projects})
+    if numero_Profile.objects.filter(user_id=id).exists():
+        profile = numero_Profile.objects.get(user_id=id)
+        projects = numero_Project.objects.filter(user_id = id).all()
+    else:
+        profile = None
+        projects = None
 
+    return render(request, 'user_details.html', {'profile': profile,'projects': projects})
 @login_required(login_url='/accounts/login/')
 def search_results(request):
     if 'title' in request.GET and request.GET["title"]:
@@ -81,3 +97,41 @@ def search_results(request):
         
         return render(request, 'search.html')
 
+class ProjectView(APIView):
+     #APIView as a base class for our API view function.
+    def get(self, request, format=None):
+        #define a get method where we query the database to get all the MoringaMerchobjects
+        projectsZote = numero_Project.objects.all()
+        #serialize the Django model objects and return the serialized data as a response.
+        serializers = ProjectSerializer(projectsZote, many=True)
+        return Response(serializers.data)
+
+    def post(self, request, format=None):
+        # post method will be triggered when we are getting form data
+        serializers = ProjectSerializer(data=request.data)
+        # serialize the data in the request
+        if serializers.is_valid():
+            # If valid we save the new data to the database and return the appropriate status code.
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ProfileView(APIView):
+     #APIView as a base class for our API view function.
+    def get(self, request, format=None):
+        #define a get method where we query the database to get all the MoringaMerchobjects
+        projectsZote = numero_Profile.objects.all()
+        #serialize the Django model objects and return the serialized data as a response.
+        serializers = ProfileSerializer(projectsZote, many=True)
+        return Response(serializers.data)
+
+    def post(self, request, format=None):
+        # post method will be triggered when we are getting form data
+        serializers = ProfileSerializer(data=request.data)
+        # serialize the data in the request
+        if serializers.is_valid():
+            # If valid we save the new data to the database and return the appropriate status code.
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
