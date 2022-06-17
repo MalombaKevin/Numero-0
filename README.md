@@ -1,5 +1,5 @@
 # Numer0
-#### Welcome to Numero. An awwards web application that lets users post their projects and have them rated by other users.
+#### Welcome to Numero. An awards web application that lets users post their projects and have them rated by other users.
 ### By Kevin Malomba  
 
 -------
@@ -12,7 +12,7 @@
 + [Technology Used](#Technology-Used)
 + [Authors Info](#Authors-Info)
 
-### Art-by-kev site link
+### Numero site link
 + [www.numer0.com]()
 
 
