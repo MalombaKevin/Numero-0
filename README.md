@@ -1,5 +1,8 @@
 # Numer0
+<img src="static/images/NUMER-0-.png">
+
 #### Welcome to Numero. An awards web application that lets users post their projects and have them rated by other users.
+
 ### By Kevin Malomba  
 
 -------
