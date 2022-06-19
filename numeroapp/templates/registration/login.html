@@ -15,17 +15,17 @@
     <div class="container"><br><br><br>
         <div class="row">
             <div class="col-md-6">
-                <img src="/static/images/NUMER-01-.png">
+                <img src="/static/images/NUMER-01-.png" style="width:100%">
 
             </div>
-            <div class="col-md-6 mt-5">
+            <div class="col-md-6 mt-5" align="center">
                 <form  action="{%url 'login'%}" method="post" enctype="multipart/form-data">
                     {%csrf_token%}
-                    <div class="header" align="center">
+                    <div class="header">
                         <p style="font-size:larger; color:blue;font-weight:bold"><marquee behavior="alternate">Great to have you back</marquee></p> 
                        </div>
                     {% bootstrap_form form%}
-                    <div align="center">
+                    <div>
                     <span align="center"><input type="submit" class="btn btn-primary btn-lg" value="Log In"></span>
                 </div>
                 </form><br>
