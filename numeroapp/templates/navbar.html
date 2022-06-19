@@ -14,7 +14,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'new_project' %}"><i class="fa-solid fa-plus"></i></a>
+          <a class="nav-link" href="{% url 'new_project' %}">Submit Project</a>
         </li>
 
 
@@ -22,9 +22,7 @@
           <a class="nav-link" href="{% url 'users'%}">Numerologers</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'profile'%}">Profile</a>
-        </li>
+      
 
         <li>
           <div class="dropdown">
@@ -42,14 +40,20 @@
         </li>
       </ul>
       
+     
       <ul class="navbar-nav">
-
-        <li class="nav-item">
-          <a class="nav-link" href="{%url 'logout'%}" style="text-decoration:none; color:gold">Logout</a>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration:none; color:GOLD"> Profile </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li class="nav-item">
+                <a class="nav-link"  href="{% url 'profile'%}" style="text-decoration:none; color:BLUE">Profile</a>
+              </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'logout'%}" style="text-decoration:none; color:RED">Logout</a>
+                </li>
+            </ul>
         </li>
-
-
-      </ul>
+    </ul>
 
 
 
