@@ -1,26 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://kit.fontawesome.com/9c5f6822d9.js" crossorigin="anonymous"></script>
-
-  <title>Document</title>
-</head>
-
-<body>
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
     <a class="navbar-brand" href="{%url 'index'%}"><span style="color:gold">NUMER</span>[0]</span></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item active">
           <a class="nav-link" href="{%url 'index'%}">Projects</a>
         </li>
@@ -37,34 +25,34 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'profile'%}">Profile</a>
         </li>
-        
+
         <li>
           <div class="dropdown">
-            <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+              data-bs-toggle="dropdown" aria-expanded="false">
               API
             </a>
-          
+
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    
+
               <li><a class="dropdown-item" href="{%url 'api_projects'%}" target="_blank">Projects</a></li>
               <li><a class="dropdown-item" href="{%url 'api_profiles'%}" target="blank">Profile</a></li>
             </ul>
           </div>
         </li>
+      </ul>
+      
+      <ul class="navbar-nav">
 
         <li class="nav-item">
-          <a class="nav-link" href="{%url 'logout'%}">Logout</a>
+          <a class="nav-link" href="{%url 'logout'%}" style="text-decoration:none; color:gold">Logout</a>
         </li>
-       
+
 
       </ul>
 
 
 
-
-  </nav>
+    </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-</body>
-
-</html>
+</nav>
