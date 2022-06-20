@@ -91,10 +91,11 @@ def search_results(request):
     if 'title' in request.GET and request.GET["title"]:
         search_term = request.GET.get("title")
         searched_titles = numero_Project.search_item(search_term)
+        ujumbe = f"{search_term}"
 
-        return render(request, 'search.html', {"titles":searched_titles})
+        return render(request, 'search.html', {"titles":searched_titles, 'ujumbe':ujumbe})
     else:
-        
+        ujumbe = ""
         return render(request, 'search.html')
 
 class ProjectView(APIView):
